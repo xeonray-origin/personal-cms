@@ -16,6 +16,9 @@
     },
     "title": {
       "type": "string"
+    },
+    "about": {
+      "type":"string"
     }
   }
 }
