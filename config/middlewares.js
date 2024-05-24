@@ -6,18 +6,22 @@ module.exports = ({ env }) => [
     config: {
       contentSecurityPolicy: {
         directives: {
-          "connect-src": ["'self'", "https:"],
+          "connect-src": ["'self'", "https:", "http:"],
           "img-src": [
             "'self'",
-            "data:",
-            "blob:",
-            `https://${env("AWS_BUCKET_NAME")}.s3.amazonaws.com`,
+            "https://personal-cms-content.s3.us-east-1.amazonaws.com",
           ],
           "media-src": [
             "'self'",
+            "res.cloudinary.com", // cloudinary images
+            "lh3.googleusercontent.com", // google avatars
+            "platform-lookaside.fbsbx.com", // facebook avatars
+            "dl.airtable.com", // strapi marketplace
             "data:",
             "blob:",
-            `https://${env("AWS_BUCKET_NAME")}.s3.amazonaws.com`,
+            `https://${env("AWS_BUCKET_NAME")}.${env(
+              "AWS_REGION"
+            )}.s3.amazonaws.com`,
           ],
           upgradeInsecureRequests: null,
         },
