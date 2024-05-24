@@ -1,17 +1,19 @@
 module.exports = ({ env }) => ({
   connection: {
-    client: "pg",
+    client: "postgres",
     connection: {
       host: env("DATABASE_HOST", "localhost"),
       port: env.int("DATABASE_PORT", 5432),
       database: env("DATABASE_NAME", "strapi"),
       user: env("DATABASE_USERNAME", "root"),
       password: env("DATABASE_PASSWORD", "toor"),
-      schema: env("DATABASE_SCHEMA", "public"), // Not required
-      ssl: {
-        rejectUnauthorized: false,
-      },
+      ssl:
+        env("ENV") === "develop"
+          ? false
+          : {
+              rejectUnauthorized: false,
+            },
     },
-    debug: false,
+    debug: env("ENV") === "develop" ? true : false,
   },
 });

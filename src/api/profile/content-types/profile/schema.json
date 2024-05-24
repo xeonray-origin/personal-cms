@@ -1,24 +1,46 @@
 {
-  "kind": "collectionType",
+  "kind": "singleType",
   "collectionName": "profiles",
   "info": {
     "singularName": "profile",
     "pluralName": "profiles",
-    "displayName": "Profile"
+    "displayName": "profile"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
+    "username": {
       "type": "string"
     },
-    "title": {
-      "type": "string"
+    "about": {
+      "type": "text"
     },
-    "description": {
-      "type":"string"
+    "profile_pic": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "skills": {
+      "type": "json"
+    },
+    "education": {
+      "type": "json"
+    },
+    "work_experience": {
+      "type": "json"
+    },
+    "projects": {
+      "type": "json"
+    },
+    "certifications": {
+      "type": "json"
+    },
+    "recognition": {
+      "type": "json"
     }
   }
 }
