@@ -5,23 +5,22 @@ module.exports = ({ env }) => [
     name: "strapi::security",
     config: {
       contentSecurityPolicy: {
+        useDefaults: true,
         directives: {
-          "connect-src": ["'self'", "https:", "http:"],
+          "connect-src": ["'self'", "https:"],
           "img-src": [
             "'self'",
-            "https://personal-cms-content.s3.us-east-1.amazonaws.com",
+            "data:",
+            "blob:",
+            "dl.airtable.com",
+            "personal-cms-content.s3.yourRegion.amazonaws.com",
           ],
           "media-src": [
             "'self'",
-            "res.cloudinary.com", // cloudinary images
-            "lh3.googleusercontent.com", // google avatars
-            "platform-lookaside.fbsbx.com", // facebook avatars
-            "dl.airtable.com", // strapi marketplace
             "data:",
             "blob:",
-            `https://${env("AWS_BUCKET_NAME")}.${env(
-              "AWS_REGION"
-            )}.s3.amazonaws.com`,
+            "dl.airtable.com",
+            "personal-cms-content.s3.yourRegion.amazonaws.com",
           ],
           upgradeInsecureRequests: null,
         },

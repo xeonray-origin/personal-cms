@@ -8,25 +8,16 @@ module.exports = ({ env }) => ({
           secretAccessKey: env("AWS_ACCESS_SECRET"),
           region: env("AWS_REGION"),
           params: {
+            ACL: env("AWS_ACL", "public-read"),
+            signedUrlExpires: env("AWS_SIGNED_URL_EXPIRES", 15 * 60),
             Bucket: env("AWS_BUCKET_NAME"),
           },
         },
       },
-      breakpoints: {
-        xlarge: 1920,
-        large: 1000,
-        medium: 750,
-        small: 500,
-        xsmall: 64,
-      },
-      // These parameters could solve issues with ACL public-read access — see [this issue](https://github.com/strapi/strapi/issues/5868) for details
       actionOptions: {
-        upload: {
-          ACL: null,
-        },
-        uploadStream: {
-          ACL: null,
-        },
+        upload: {},
+        uploadStream: {},
+        delete: {},
       },
     },
   },
