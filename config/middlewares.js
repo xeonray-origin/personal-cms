@@ -6,13 +6,12 @@ module.exports = ({ env }) => [
     config: {
       contentSecurityPolicy: {
         directives: {
-          "script-src": ["'self'", "'unsafe-inline'", "cdn.jsdelivr.net"],
+          "default-src": ["'self'"],
           "img-src": [
             "'self'",
             "data:",
-            "cdn.jsdelivr.net",
-            "strapi.io",
-            `${env("AWS_BUCKET")}.s3.${env("AWS_REGION")}.amazonaws.com`,
+            "blob:",
+            `${env("AWS_BUCKET_NAME")}.s3.${env("AWS_REGION")}.amazonaws.com`,
           ],
         },
       },
