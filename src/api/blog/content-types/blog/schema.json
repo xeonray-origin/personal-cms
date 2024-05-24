@@ -42,6 +42,9 @@
       "options": {
         "apiUrl": "/api/labels?fields[0]=Name"
       }
+    },
+    "hero_img_src": {
+      "type": "string"
     }
   }
 }

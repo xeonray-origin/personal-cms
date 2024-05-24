@@ -811,6 +811,7 @@ export interface ApiBlogBlog extends Schema.CollectionType {
           apiUrl: '/api/labels?fields[0]=Name';
         }
       >;
+    hero_img_src: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
